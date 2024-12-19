@@ -1,0 +1,8 @@
+<P>
+To <B>generate</B> a table of contents
+all the C <B>program</B> files in your
+current working directory, use the
+<B>command</B>.
+<PRE>
+	$<B>ctags *.c</B>
+</PRE>

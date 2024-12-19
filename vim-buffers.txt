@@ -1,0 +1,55 @@
+- Inactive buffer
+h Buffer is hidden
+% Current buffer.
+# Alternate buffer.
++ File has been modiffed.
+
+In this case, you see six buffers:
+1. The next to last file you were working on, also know as 
+   alternate file (# flag). This buffer has been hidden(h
+   flag). You were editing file one.c and left the currsor
+   on line 1.
+2. The active buffer (% flag). This is the file you are editing.
+3. An inactive. You want to edit three.c, but you have made no
+   changes to it.
+4. Another file on the argument list that has not been edited.
+5  When you executed a :help command, the Vim editor opened two
+   files. The first one of these is called help.txt.
+6  This is another help file called editing.txt
+
+
+Selecting a Buffer
+You can select which buffer to use by executing the following command:
+  :buffer number
+
+number is the buffer number. If you do not know the number of the buffer,
+but you do know the filename, you can use this command:
+ :buffer file
+
+The following command splits the window and starts editing the buffer:
+ :sbuffer number
+
+If a number is specified, the new window will contain that buffer number.
+If no number is present. the current buffer is used. This also takes a 
+a filename as an argument. If you are editing the file three.c and execute
+the following commnad, for example, you get results seen in Figure 5.9
+  :sbuffer one.c
+
+
+Other buffer-related commands include the following:
+  :bnext			Go to the next buffer.
+  :count bnext  		Go to the next buffer count times.
+  :count sbnext			Shorthand for :split followed by :count bnext
+  :count bprevious		Go to previous buffer.If a count it specified,
+				go to the count previous buffer.
+  :count sbprevious		Shorthand for :split and :count bprevious.
+  :count bNext			Alias for :bprevious.
+  :count sbNext			Alias for :sbprevious.
+  :blast			Go to the last buffer in the list.
+  :sblast			Shorthand for :split and :blast.
+  :brewind			Go to the first buffer in the list.
+  :sbrewind			Shorthand for :split and :rewind.
+  :bmodified count		Go to count modified buffer on the list.
+  :sbmodified count		Shorthand for :split and :bmodified
+
+
