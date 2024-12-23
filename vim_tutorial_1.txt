@@ -88,14 +88,20 @@ cw: delete a word and into insert mode.
 cc : delete a line and into insert mode.
 c$ or C change from the cursor to the end of the line.
 
+The . command
+-------------
 The . command is one of the most simple yet powerful
 commands in Vim. It repeats the last delete or change
 command.
 
+Joining Lines
+-------------
 The J command joins the current line with the next one.
 A space is added to the end of the first line to separate 
 the two pieces that are joined.
 
+Replacing Characters
+--------------------
 The rx command replaces the character under the cursor with x.
 The r command can be preceded with a count, indicating the number
 of characters to be replaced
@@ -104,6 +110,8 @@ Be careful where you place the count. The 5rx command replaces five
 characters with the character x, whereas r5x replaces the character
 under the cursor with 5(r5) and then deletes a character(x)
 
+Changing Case
+-------------
 The ~ command changes a character's case. It changes uppercase to lowercase
 and vice versa. If a count is specified, the count characters are changed.
 
@@ -116,50 +124,6 @@ q command. You can now execute the macro by typing the @character command.
 that number of times.)
 
 The :reg <register> display the commands  of the specified macro name recorded.
-
-
-Chapter 3. Searching
-======================
-/string: To search for a string, use the /string command. To find the word include,
-for example, use the command /include . An <Enter> is implied at the end of this 
-command. (Any time the cursor jumps to the bottom of the screen and you type something,
-you must be end it with <Enter>.)
-  Note: The characters .*[]^%?~$ have special meaning. If you want to use them in a 
-search you must put a \ in front of them. Example: to find . use search string \.
-/string\c: ignore uppercase or lowercase
-
-/<Enter> or n : To find the next include, use the command /<Enter>, Another way to find
-the next match is with the n command. This command does the same thing as /<Enter>,but
-does it with one less keystroke. 
-Both the /<Enter> and n commands can have a count specified. If there is a count, the 
-command searches for the count number of matches from the current location. 
-
-?: The reverse search command (?) searches backward. The n command repeats the last
-search. If a reverse search was the last one used, the n command searches in the 
-reverse direction. If the last search was a forward search, the n command searches
-forward.
-
-N: The N command reverses the direction on the search and repeats it.
-
-Search history: After you do a number of searches, you can use the <UP> and <DOWN> keys to select one of your recent searches.
-
-Searching Options:
-  hlserach or nohlsearch: Vim to highlight any strings found matching the search pattern 
-use set hlsearch, and use :set nohlsearch cannel it.
-
-  incsearch or noincsearch: incremental search in Vim is a powerful feature that allows 
-you to search for text as you type, updating the search results in real time. This can 
-be particularly useful when you're unsure of the exact text you're looking for or when
-you need to find a specific pattern within a large document. 
-  
-Regular Expression Summary
-=========================
-x               The literal character x
-^               Start of line
-$               End of line
-.               A single character
-\ccharacter     Turn off the special meaning of many characters, gives
-                special meaning to a few others  
 
 
 Chapter 4 : Text Blocks and Multiple Files
