@@ -1,2 +1,2 @@
 # vim_study
-# vim-notes
+Vim totorial notes
