@@ -1,0 +1,116 @@
+vimbook-OPL
+Page 3 ~ 14
+
+==================
+
+The Vim editor is one of the most powerful text editors around. It is also
+extremely efficient, enabling the user to edit files with a minimum of 
+keystrokes, This power and functionality comes at a cost,however: When 
+getting started, users face a steep learning curve.
+   In this chapter, you learn the following:
+	* The four basic movement commands
+	* How to insert and delete text
+	* How to get help (very important)
+	* Exiting the editor
+
+=======================================================================
+
+~ The tilde(~) lines indicate lines not in the file.
+
+
+Vim modes
+=========
+The Vim editor is a modal editor. That means that the editor behaves differently,
+depending on which mode you are in.
+
+	filename or is blank  you are in `normal mode`
+	--INSERT--	      you are in `insert mode`
+	--VISUAL--	      you are in `visual mode`
+
+pass <Esc> key, you can return to `normal mode`.
+
+Move around
+===========
+	h  left
+	j  down
+	k  up
+	l  right
+
+Deleting characters
+==================
+	x  delete a character
+
+
+Undo and Redo
+=============
+	u  undo the last edit
+	U  undo line 
+	   There's a special version of the undo command, the U (undo line)
+	   command. The undo line command undoes all the changes made on the
+	   last line that was edited. Typing this command twice cancels the 
+	   preceding U.
+   CTRL-r  redo It's undoes the undo.
+
+
+Getting Out
+===========
+	ZZ (Capital Z)	To exit, use the ZZ command. This command writes the file and exits.
+			Unlike many other editors, Vim does not automatically make a backup
+			file. If you type ZZ, your changes are committed and there's no turning
+			back.  
+
+	:x	       This is similar to ZZ, saving the file and quitting, but it only saves if 
+		       changes have been made.				
+	:wq	       This also saves the file and exits Vim but requires typing the full command.
+
+
+Discarding Changes
+==================
+	:q!   		Sometimes you will make a set of changes and suddenly realize you better off
+			before you started. Vim has a "quit-and-throw-things-away" command
+
+        :q		If you change something, and typing :q , you will get an error messsage and
+			refuse to exit: No write since last message (use ! to override)
+
+Other Editing Commands
+======================
+	If you want to insert some characters, you must be in insert mode. you can use this following
+	commands into insert mode.
+
+	i		Insert before the cursor.
+ 	I		Insert at the beginning of the line
+	a		Insert after the cursor.
+	A		Insert at the end of the line.
+	o		Open a new line beblow
+	O		Open a new line above		
+	Esc		Exit Insert mode
+
+   Ctrl + o		One-Time Normal mode.
+			While in insert mode, press Ctrl + o to temporarily return to Normal mode for one
+			command and then automatically return to insert mode.
+
+Delete commands
+===============
+	x		Delete the character under the cursor.
+			It's a quick and efficient way to remove a single character	
+
+	X		Delete the character before the cursor.
+			This is useful when you want to remove a character that precedes your current cursor
+			position.
+
+	d		This letter (d) initiates a delete operation.
+
+	D		The capital D acts as a shortcut for d$, where $ moves the cursor to the end of the 
+			current line.	
+
+	dd	 	To delete a line, use the dd command, which deletes the line on which the cursor is
+			postioned. 	
+
+	
+Help
+============
+
+	:help		There's one more important command, the help command. 
+	CTRL+]		jump to tag
+	CTRL+T		pop tag
+

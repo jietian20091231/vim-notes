@@ -1,0 +1,51 @@
+Choosing a text editor seems to be a rather trivial thing. But if you are serious about your text editing the most minute differences can have a huge impact on your daily workflow.
+Vim is the OG text editor on Unix systems. It has been around the longest and has cultivated an insanely large user base. Vi morphed into Vim which eventually morphed into NeoVim. The latter one is my preferred weapon of choice in this transition away from emacs.
+Emacs too is an ancient project. Both Vim and Emacs can edit text with great ease. But Vim is truly a text edtor first and nothing else. Emacs on the other hand is often called an OS within your OS. Yes it's a text editor. Yes it's a mail client. Yes it can browse the web. Yes it has a fully functional Tetris clone. Yes it has an inbuilt psychiatrist. Add some extensions and emacs can truly do a lot.
+Both editors can be extended to the moon and back. However Vim is the more pure editor experience out of the box.
+What sets these editors apart even more is it's command interface. Vim accpts commands first and is an editor second. To edit text the user has to activate the input mode. Emacs on the other hand allows editing first and knows special shortcuts (e.g. Ctrl-X) to enter the command mode for more shortcuts to be executed. Those Emacs shortcuts are now deeply embedded into my mucle memory and are very hard to get rid of even in other tools that know nothing about Emacs.
+
+Frequently when you are typing, you fingers get ahead of your brain. The result is a 
+typo such as teh for the. The Vim editor make it easy to correct such problems. Just
+put the cursor on the e of teh and execute the command xp. Figure 4.3 illustrates this
+command. This works as follows:
+x	Deletes the character 'e' and places it in a register.
+p	Puts the text after the cursor, which is on the 'h'.
+
+
+More on "Putting"
+You can execute the p command multiple times. Each time. it inserts another copy of
+the text into the file.
+  The p command places the text after the cursor. The P command places the text 
+befor the cursor. A count can be used with both commands and, if specified, the 
+text will be insert count times.
+
+Marks
+
+The Vim editor enables you to place marks in your text. The command ma marks the
+place under the cursor as mark a. You can place 26 marks (a through z) in your 
+text.(You can use a number of other marks as well.)
+  To go to a mark, use command `mark, where mark is the mark letter(and ` is 
+the backtick or open single-quote character).
+  The command 'mark (single qutaion mark, or apostrophe)moves you to the beginning
+of the end of the line containning the mark. This differs from the `mark command, 
+which moves you to the marked line and cloumn.
+  The 'mark command can be very useful when deleting a long series of lines. To
+delete a long series of lines, follow these steps:
+  1, Move the cursor to the beginning of the text you want to delete.
+  2, Mark it using the command ma.(This marks it with mark a)
+  3, Go to the end of the text to be removed. Delete to mark a using the command
+     d'a.
+Note: There is nothing special about using the a mark. Any mark from a to z may be
+used.
+ There is nothing special about doing the beginning frist followed by the end. You
+could just as easily have marked the end, moved the cursor to the beginning, and 
+deleted to the mark.
+ One nice thing about marks in that they stay with the text even if the text moves
+(because you inserted or deleted text above the mark. Of course, if you delete the
+text containing the mark, the mark disappears.
+
+
+Line1
+Line2
+Line3
+We will delete the word in the middle.

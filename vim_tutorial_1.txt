@@ -1,0 +1,177 @@
+vimbook-OPL
+Page 25 of 572
+Page 28 of 572
+==============
+
+Chapter 2 Editing a Little Faster
+=================================
+This chapter include the following commands:
+	* Additional movement commands
+	* Quick searches along a single line
+	* Additional delete and change commands
+	* The repeat command
+	* Keyboard macros (how to record and play back commands)
+	* Digraphs
+
+Basic movement
+--------------
+h: left 
+j: down
+k: up
+l: right
+
+Word movement
+--------------
+w: forward word
+W: forward word
+b: backward word
+B: backward word
+
+Moving to the Start or End of a Line
+------------------------------------
+$: moves the cursor to the end of a line.
+^: moves to the first nonblank character of the line.
+   The 0 [zero] command does the same thing.
+<Home> or <kHome> moves to the first character of the line.
+
+
+Searching Along a Single Line
+------------------------------------
+One of the most useful movement command is the single-character
+search command. The command fx (forward search) searches the line
+for the single character x. The F command searches to the left.
+
+The tx(search 'til) command works like the fx command, except it
+stops one character before the indicated character. The backward
+version of this command is Tx
+
+Note: <Esc> cancels most operations, not just searches.
+
+Moving to a Specific Line
+-------------------------
+G: moves to a specific line is to use the G command.With an
+   argument, this command positions you at the given line number.
+   For example, 3G puts you on line 3. (Likewise, use the 1G command
+   to go to the top of the file.)
+
+Telling Where You Are in a File
+-------------------------------
+CTRL-G show where are you in the file.
+
+Scrolling Up and Down
+---------------------
+CTRL-U scrolls up half a screen of text.
+       (Up in this case is backward in the file; the text moves down
+        on the screen. Don't worry if you have a little trouble remembering
+	which end is up. Most programmers have same problem.)
+
+CTRL-D scrolls down half a screen of text.
+
+Deleting Text
+-------------
+dd: delete a line.
+dw: delete a word
+ndw or dnw: n is a number, command deletes n words.
+d$: deletes from the cursor to the end of the line.
+d0: deleete from the cursor to the first of the line.
+
+3dw: It means deletes one word three times;
+d3w: deletes three words once.
+3d2w: deletes two words, repeated three times. for
+      a total of six word.
+
+Changing Text
+-------------
+c:  The c command change text. It acts just like the d command, except it leaves you
+insert mode.
+cw: delete a word and into insert mode.
+cc : delete a line and into insert mode.
+c$ or C change from the cursor to the end of the line.
+
+The . command is one of the most simple yet powerful
+commands in Vim. It repeats the last delete or change
+command.
+
+The J command joins the current line with the next one.
+A space is added to the end of the first line to separate 
+the two pieces that are joined.
+
+The rx command replaces the character under the cursor with x.
+The r command can be preceded with a count, indicating the number
+of characters to be replaced
+
+Be careful where you place the count. The 5rx command replaces five
+characters with the character x, whereas r5x replaces the character
+under the cursor with 5(r5) and then deletes a character(x)
+
+The ~ command changes a character's case. It changes uppercase to lowercase
+and vice versa. If a count is specified, the count characters are changed.
+
+Keyboard Macros
+===============
+The qcharacter command records keystrokes into the register named character.
+(The character must be between a and z.) To finish recording, just type a
+q command. You can now execute the macro by typing the @character command.
+(This can be preceded by a count, which will cause the macro to be executed
+that number of times.)
+
+The :reg <register> display the commands  of the specified macro name recorded.
+
+
+Chapter 3. Searching
+======================
+/string: To search for a string, use the /string command. To find the word include,
+for example, use the command /include . An <Enter> is implied at the end of this 
+command. (Any time the cursor jumps to the bottom of the screen and you type something,
+you must be end it with <Enter>.)
+  Note: The characters .*[]^%?~$ have special meaning. If you want to use them in a 
+search you must put a \ in front of them. Example: to find . use search string \.
+/string\c: ignore uppercase or lowercase
+
+/<Enter> or n : To find the next include, use the command /<Enter>, Another way to find
+the next match is with the n command. This command does the same thing as /<Enter>,but
+does it with one less keystroke. 
+Both the /<Enter> and n commands can have a count specified. If there is a count, the 
+command searches for the count number of matches from the current location. 
+
+?: The reverse search command (?) searches backward. The n command repeats the last
+search. If a reverse search was the last one used, the n command searches in the 
+reverse direction. If the last search was a forward search, the n command searches
+forward.
+
+N: The N command reverses the direction on the search and repeats it.
+
+Search history: After you do a number of searches, you can use the <UP> and <DOWN> keys to select one of your recent searches.
+
+Searching Options:
+  hlserach or nohlsearch: Vim to highlight any strings found matching the search pattern 
+use set hlsearch, and use :set nohlsearch cannel it.
+
+  incsearch or noincsearch: incremental search in Vim is a powerful feature that allows 
+you to search for text as you type, updating the search results in real time. This can 
+be particularly useful when you're unsure of the exact text you're looking for or when
+you need to find a specific pattern within a large document. 
+  
+Regular Expression Summary
+=========================
+x               The literal character x
+^               Start of line
+$               End of line
+.               A single character
+\ccharacter     Turn off the special meaning of many characters, gives
+                special meaning to a few others  
+
+
+Chapter 4 : Text Blocks and Multiple Files
+==========================================
+* Simple cut-and-paste operations (in Vim terms, delete and put)
+* Marking locations within the text
+* Copying text into a register using the yank commands
+* Filtering text
+* Editing multiple files
+
+
+
+
+
+
