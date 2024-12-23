@@ -1,6 +1,15 @@
-
 Chapter 3. Searching
-======================
+In this chapter, you learn about the following
+	* Simple forward searches
+	* Search options
+	* Incremental searches
+	* Changing directions
+	* Basic regular expressions
+===============================================
+
+Simple Searches
+---------------
+
 /string: To search for a string, use the /string command. To find the word include,
 for example, use the command /include . An <Enter> is implied at the end of this 
 command. (Any time the cursor jumps to the bottom of the screen and you type something,
@@ -15,23 +24,58 @@ does it with one less keystroke.
 Both the /<Enter> and n commands can have a count specified. If there is a count, the 
 command searches for the count number of matches from the current location. 
 
+N: The N command reverses the direction on the search and repeats it.
+
+Search History
+--------------
+
+:/<Up> or :/<Down>: After you do a number of searches, you can use the <Up> and <Down> keys
+to select one of your recent searches.
+
+
+Highlighting
+------------
+  hlserach or nohlsearch: Vim to highlight any strings found matching the search pattern 
+use set hlsearch, and use :set nohlsearch cannel it.
+
+Incremental Searches
+--------------------
+  incsearch or noincsearch: incremental search in Vim is a powerful feature that allows 
+you to search for text as you type, updating the search results in real time. This can 
+be particularly useful when you're unsure of the exact text you're looking for or when
+you need to find a specific pattern within a large document. 
+
+Searching Backward
+------------------
 ?: The reverse search command (?) searches backward. The n command repeats the last
 search. If a reverse search was the last one used, the n command searches in the 
 reverse direction. If the last search was a forward search, the n command searches
 forward.
 
-N: The N command reverses the direction on the search and repeats it.
+Changing Direction
+------------------
+Suppose you start a forward search for unsigned using the /unsigned command. You can turn
+around and search in the reverse direction by using the ? command. The n command repeats 
+the search in the same direction. The N command reverses the direction on the search and 
+repeats it.
 
-Search history: After you do a number of searches, you can use the <UP> and <DOWN> keys to select one of your recent searches.
+Basic Regular Expressions
+-------------------------
 
-Searching Options:
-  hlserach or nohlsearch: Vim to highlight any strings found matching the search pattern 
-use set hlsearch, and use :set nohlsearch cannel it.
+The ^ character matches the beginning of a line.
+The $ character matches the end of a line.
+If you want to search for a line consisting of just the word xxx, use 
+the regular expression ^xxx$. 
+To search for empty lines, use the regular expression ^$.
 
-  incsearch or noincsearch: incremental search in Vim is a powerful feature that allows 
-you to search for text as you type, updating the search results in real time. This can 
-be particularly useful when you're unsure of the exact text you're looking for or when
-you need to find a specific pattern within a large document. 
+The character . matches any single character. For example, the expression c.m
+matches a string whose first character is a c, whose second character is anything,
+and whose the third character is m. 
+
+Most symbols have a special meaning inside a regular expression. To match these
+sepcial symbols, you need to precede them with a backslash (\). To find it. for
+example, use the string it\.
+
   
 Regular Expression Summary
 =========================
