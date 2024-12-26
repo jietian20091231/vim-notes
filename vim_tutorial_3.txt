@@ -1,42 +1,50 @@
-Chapter 3. Searching
-======================
-/string: To search for a string, use the /string command. To find the word include,
-for example, use the command /include . An <Enter> is implied at the end of this 
-command. (Any time the cursor jumps to the bottom of the screen and you type something,
-you must be end it with <Enter>.)
-  Note: The characters .*[]^%?~$ have special meaning. If you want to use them in a 
-search you must put a \ in front of them. Example: to find . use search string \.
-/string\c: ignore uppercase or lowercase
+Chapter 4
+Text Blocks and Multiples Files
+===============================
+This chapter discusses the following topics:
+	*Simple cut-and-paste operations (in Vim terms,delete and put)
+	*Marking locations within the text
+	*Copying text into a register using the yank commands
+	*Filtering text
+	*Editing multiple files
 
-/<Enter> or n : To find the next include, use the command /<Enter>, Another way to find
-the next match is with the n command. This command does the same thing as /<Enter>,but
-does it with one less keystroke. 
-Both the /<Enter> and n commands can have a count specified. If there is a count, the 
-command searches for the count number of matches from the current location. 
+Cut, Paste, and Copy
+--------------------
+p	When you delete something with d, x, or another command,
+	the text is saved. You can paste it back using the p
+	command.
 
-?: The reverse search command (?) searches backward. The n command repeats the last
-search. If a reverse search was the last one used, the n command searches in the 
-reverse direction. If the last search was a forward search, the n command searches
-forward.
+Character Twiddling
+-------------------
+Frequently when you are typing, your fingers get ahead of your
+brain. The result a typo such as teh for the. The Vim editor
+makes it easy to correct such problems.Just put the curosr on
+the e of teh and execute the command xp.
+	x  Delete the character 'e' and places it in a register
+	p  Puts the text after the cursor, which is on the 'h'
 
-N: The N command reverses the direction on the search and repeats it.
+More on "Putting"
+----------------
+You can execute the p command multiple times. Each time, it inserts
+another copy of the text into the file.
+The p command places the text after cursor. The P command places the 
+text before the cursor. A count can be used with both commands and,
+if specified, the text will be inserted count times.
 
-Search history: After you do a number of searches, you can use the <UP> and <DOWN> keys to select one of your recent searches.
 
-Searching Options:
-  hlserach or nohlsearch: Vim to highlight any strings found matching the search pattern 
-use set hlsearch, and use :set nohlsearch cannel it.
-
-  incsearch or noincsearch: incremental search in Vim is a powerful feature that allows 
-you to search for text as you type, updating the search results in real time. This can 
-be particularly useful when you're unsure of the exact text you're looking for or when
-you need to find a specific pattern within a large document. 
-  
-Regular Expression Summary
-=========================
-x               The literal character x
-^               Start of line
-$               End of line
-.               A single character
-\ccharacter     Turn off the special meaning of many characters, gives
-                special meaning to a few others  
+Marks
+-----
+The Vim editor enables you to place marks in your text. The command ma
+marks the place under the cursor as mark a. You can place 26 marks (a
+through z) in your text.
+  To go to a mark, use the command `mark, where mark is the mark letter
+(and ` is the backtick or open single-quote character).
+  The command'mark (single quotation mark, or apostrophe) moves you to the
+beginning of the line containing the mark. This differs from the `mark commnd,
+which moves you to the marked line and column.
+  The 'mark command can be very useful when deleting a long series of lines.
+To delete a long series of lines, follow these steps:
+  1, Move the cursor to the beginning of the text you want to delete.
+  2, Mark it using the command ma. (This marks it with mark a)
+  3, Go to the end of the text to be removed, Delele to mark a using the 
+     command d'a
