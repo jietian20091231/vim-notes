@@ -48,3 +48,75 @@ To delete a long series of lines, follow these steps:
   2, Mark it using the command ma. (This marks it with mark a)
   3, Go to the end of the text to be removed, Delele to mark a using the 
      command d'a
+
+Where Are the Marks?
+-------------------
+To list all the marks, use the following command:
+:marks
+Clean the mark, use the following command:
+:delm (a~zA~Z0~9) 
+:delm! This is deletes all lowercase marks (a~z) for current buffer.
+
+Yanking
+------
+y: The y command "yank" text into a register (without removing it from 
+   the file). 
+
+yy: yy yanks the current line into the buffer.
+
+Y: the Y command yanks a single line. If preceded by a count, if yanks 
+   that number of lines into the register. You might have expected Y to 
+   yank until the end of the line, like D and C, but it really yanks the 
+   whole line.
+
+
+Filtering
+---------
+The !motion command takes a block of text and filters it through another
+program. In other words, it runs the system command represented by 
+command, giving it the block of text represented by motion as input. 
+The output of this command then replaces the seleted block.
+
+The !! command runs the current line through a filter.
+
+For example:
+I'm editing a `readme.txt` file,  and want to include in it a list of
+the files in the current directory. I position the curor on a blank line
+type the `!!ls`. This puts output of the `ls` command into my file.
+
+I want to input the current time stamp. use this command `!!date`
+
+Editing Another File
+--------------------
+Suppose that you have finished editing one file and want to edit
+another file. You can execute the following command:
+:vi file
+
+This command  automatically closes the current file and opens
+the new one. If the current file has unsaved chagnes, however, 
+Vim displays a warning message and aborts the command:
+  No write since last change (use ! to override)
+
+:write   	write last change to file.
+:vi! file.txt   force Vim discard your changes and edit the new
+		file.
+
+:e file.txt     edit current file to anothe file. 
+:e! file.txt    samiler than `:vi! file.txt`
+
+
+The :vim command
+----------------
+The following command works just like the `:vi` command, except
+the new file is opened in read-only mode:
+	:vim file
+If you attempt to change a read-only file, you receive a warning.
+You can still make the changes; you just can't save them. When you
+attempt to save a changed read-only file, Vim issuses an error message
+and refuses to save the file. (You can force the write with the `:write!`
+command)
+
+*Bookmark vimbook-opl.pdf Page 41 of 572
+
+
+ 

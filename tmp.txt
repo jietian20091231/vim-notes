@@ -1,30 +1,48 @@
 hello world,11111
 
-stdio.h
+type `:4,13sort`
+0
+1
+4
+5
+6
+7
+8
+9
+2
+3
+
+https://yyq123.github.io/learn-vim/learn-vim-sort.html
+
 fcntl.h
+stdio.h
 unistd.h
 stdlib.h
 
 
 teh
 
-111111111111
-This is Line
-This is Line
-This is Line
-This is Line
-this is Line
-This is Line
-111111111111
+The Line Number is 0.
+The Line Number is 1.
+The Line Number is 2.
+The Line Number is 3.
+The Line Number is 4.
+The Line Number is 5.
+The Line Number is 6.
+The Line Number is 7.
+The Line Number is 8.
+The Line Number is 9.
 
+True
 
 To to the mark, use the command `mark, where mark is
 the (1111111)  mark letter (and ` is the backtick or open single-
 quote character).
 
-
+The start of the last insert
 
 To err is human, To really foul up you need a computer.
+
 
 
 int main()
@@ -32,4 +50,40 @@ int main()
   print("dfhdjfdjfh");
 }
 
+The  end of the insert
 
+To to the mark, use the command `mark, where mark is
+the (1111111)  mark letter (and ` is the backtick or open single-
+quote character).
+
+The start of the last insert
+
+To err is human, To really foul up you need a computer.
+
+/Users/Jie/Desktop/vim-notes
+total 208
+drwxr-xr-x  25 Jie  staff    800 Dec 28 21:51 .
+drwx------+ 16 Jie  staff    512 Dec 28 16:27 ..
+drwxr-xr-x  15 Jie  staff    480 Dec 28 19:50 .git
+-rw-r--r--   1 Jie  staff     15 Dec 26 00:43 .gitignore
+-rw-r--r--   1 Jie  staff  12288 Dec 28 22:31 .tmp.txt.swp
+-rw-r--r--   1 Jie  staff  12288 Dec 28 21:41 .vim_tutorial_3.txt.swp
+-rw-r--r--   1 Jie  staff   8148 Dec 23 20:59 Declaration_of_Independence_July_4_1776.bak
+-rw-r--r--   1 Jie  staff    476 Dec 23 20:59 Declaration_of_Independence_July_4_1776.txt
+-rw-r--r--   1 Jie  staff     31 Dec 23 20:59 README.md
+drwxr-xr-x   3 Jie  staff     96 Dec 26 00:41 cheatsheet
+-rw-r--r--   1 Jie  staff   8272 Dec 23 20:59 diff.txt
+drwxr-xr-x   7 Jie  staff    224 Dec 23 20:59 markdown
+-rw-r--r--   1 Jie  staff    165 Dec 23 20:59 test_dot_command.bak
+-rw-r--r--   1 Jie  staff    165 Dec 23 20:59 test_dot_command.txt
+-rw-r--r--   1 Jie  staff    713 Dec 23 20:59 test_keyboard_macros.txt
+-rw-r--r--   1 Jie  staff    130 Dec 23 20:59 test_mark.txt
+-rw-r--r--   1 Jie  staff    794 Dec 28 21:51 tmp.txt
+drwxr-xr-x   3 Jie  staff     96 Dec 26 00:41 tmux
+-rw-r--r--   1 Jie  staff   2117 Dec 23 20:59 vim-buffers.txt
+drwxr-xr-x   5 Jie  staff    160 Dec 28 10:41 vim-docs
+-rw-r--r--   1 Jie  staff   3466 Dec 23 20:59 vim_tutorial_0.txt
+-rw-r--r--   1 Jie  staff   4277 Dec 23 20:59 vim_tutorial_1.txt
+-rw-r--r--   1 Jie  staff   3539 Dec 23 22:15 vim_tutorial_2.txt
+-rw-r--r--   1 Jie  staff   2678 Dec 28 21:41 vim_tutorial_3.txt
+-rw-r--r--   1 Jie  staff   3618 Dec 23 20:59 vim_tutorial_4.txt
