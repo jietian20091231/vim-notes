@@ -116,7 +116,81 @@ attempt to save a changed read-only file, Vim issuses an error message
 and refuses to save the file. (You can force the write with the `:write!`
 command)
 
-*Bookmark vimbook-opl.pdf Page 41 of 572
+*Bookmark vimbook-opl.pdf Page 41 of 572*
+
+Dealing with Multiple Files
+---------------------------
+vim arguments :
+This command starts Vim and tells it that you will be
+editing three files. By Vim displays just the first file.
+`arguments` like `one.c two.c three.c`
+
+:next or :n
+ To edit the next file. Note that if you have unsaved changes in
+ the current file and you try to do a `:next`, you will get a 
+ warning message and the `:next` will not work.
+
+:wnext or :wn
+Write your unsaved changes in the current file and change next
+edit file. (arguments)
+
+:next! or :n!
+You can force Vim to go the next file using the force (!) option.
+If you use `:next!` command and your current file has changes, you
+will lose those changes.
+
+autowrite
+This is the `autowrite` option. If this option is set, Vim will
+not issue any `No write...` messages. To turn this option on,use
+the command `:set autowrite`, To turn it off, use the command
+`:set noautowrite`
+
+Which File Am I On?
+-------------------
+:args
+Suppose you are editing a number of files an want to see which one you are on.
+The `:args` command displays the list of the files currently being edited. The
+one that you are working on now is enclosed in square brackets
 
 
- 
+Going Back a File
+-----------------
+:previous or :Next or :N
+To go back file, If you have unsaved changes in current file and do this command
+you will get a warning message and abort. you can use force (!) option, you do this,
+you will lose changes.
+:wp or :wN
+write current file and to go back file.
+
+Editing the First or Last File
+------------------------------
+:rewind or :first 
+To go the first file in a number of files. 
+
+:last
+To go the last file in a number of files. 
+
+
+Editing Two Files
+-----------------
+Suppose that you edit two files by starting Vim with following:
+	$ vim one.c two.c
+You edit a a little on th first file, and then go to the next
+file with the following:
+	:wnext
+At this point, the previous file, `one.c` is considered the 
+`alternate file`. This has special significance in Vim.
+For example, a special text register (#) contains the name of
+this file.
+  By pressing `CTRL-^`, you can switch editing from the current
+file to the alternate file. Therefore, if you are editing `two.c`
+and press `CTRL-^`, you will switch to `one.c` (`two.c` becoming
+the alternate file). Pressing `CTRL-^` one more time switches you
+back.
+
+	$vim one.c two.c three.c
+Note:
+When you first start editing (file `one.c`) and press `CTRL-^`, you
+will get an error message: `No alternate file`. Remember the `alternate
+file` is the last file you just edited before this one (in this editing 
+session). The alternate file name save in register named in `#`.
