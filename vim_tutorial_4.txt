@@ -6,3 +6,105 @@ The topics discussed in this chapter include following:
 * Editing two files at once
 * Controlling the size of a window
 * Basic buffer usage
+
+
+Opening a New Window
+--------------------
+:split
+This command splits the screen into two windows (and leaves the cursor in the top one)
+
+CTRL-W w or CTRL-W CTRL-W
+If you are at the bottom windows,the `CTRL-W w` command moves the cursor to the top
+window.If you are at the top window, the editor jumps to the buttom one on the screen.
+
+CTRL-W j & CTRL-W k
+To change windows, use `CTRL-W j` to go down a window and `CTRL-W k` to go up a window.
+
+CTRL-W c
+To close a window, use `zz` or the command `:q`, `CTRL-W c` does the same thing.
+
+Usually you would expect `CTRL-W CTRL-C` also to close a window. It would if all the 
+`CTRL-W` commands were consistent. Because `CTRL-C` cancels any pending operation,
+however, `CTRL-W CTRL-C` does nothing.
+
+
+Opening Another Window with Another File
+----------------------------------------
+:split file
+The `:split file` command opens a second window and starts editing the given file.
+
+The `:split` command can also execute an initial command using the `+command` convention.
+
+Controlling Window Size
+-----------------------
+The `:split` command can take a number argument. If specified, this will be the number of 
+line in  the new window. For example `:3split tmp.txt` 
+
+
+Split Summary
+-------------
+The general form of the `:split` command is as follows:
+ :[count]split +command file
+
+count:		The size of the new window in lines. (Default is to split the current window 
+       		into two equal sizes.)
++command:	An initial command.
+file		The name of the file to edit (Default is the current file.)
+
+
+The `:new` Command
+------------------
+The `:split` command splits the current window and displays the current file in both windows.
+The `:new` command splits the current window and starts a new file in the other window.
+
+Split and View
+--------------
+The `:sview` command acts like a combinations of `:split` and `:view`. This command proves
+useful if you want to look at, but not edit, a file in another window.
+
+Changing Window Size
+--------------------
+countCTRL-W +/-/=/_
+The command `countCTRL-W +` increases the window size by count (default = 1)
+Similarly `countCTRL-W -` decreases the window's size by count (default = 1)
+The command `countCTRL-W =` marks all the windows the same size. (or as close as possible)
+The command `countCTRL-W _` marks the current window count lines high. If no count is specified, 
+the window is increased to its maximum size.
+
+Buffers
+-------
+The Vim editor uses the term buffer to describe a  file being ediied. Actually, a buffer is a copy
+of the file that you edit. When you finish changing the buffer and exit, the contents of the buffer
+are written to the file. Buffers  not only contain file contents, but also all the marks, settings,
+and other stuff that go with it.
+  Normally it pretty easy to tell what buffers you have: If it has a window on the screen, it is a 
+buffer; if it is not on the screen, it is not a buffer.
+  Now for a new concept thrown into the mix, that of the hidden buffer. Suppose you are editing a file
+named `one.c` and you need to do some work on `two.c`. You split the screen and create two windows, 
+one of earch file. But you do not like split-screen mode; you want to see one file at a time.
+  One solution is make the window for `two.c` a big possible. This works, but there still is an annoying
+little bit of `one.c` showing. Another solution is to close the `one.c` window, but then you lose all
+the changes for that file.
+  The Vim editor has another solution for you: the `:hide` command. This causes the current buffer to 
+become "hidden". This causes it to disappear from the screen. But Vim still knows that you are editing
+this buffer, so it keeps all the settings, marks, and other stuff around.
+  Actually, a buffer can have three states:
+  Active	Appears onscreen
+  Hidden	A file is being edited, but does not appear onscreen.
+  Inactive	The file is not being editied, but keep the information about it anyway.
+
+The inactive state takes a little explaining. When you edit another file, the content of the current file
+is not longer needed, so Vim discards it. But information about marks in the file and some other things are 
+still useful and are remembered along with the name of the file. Also, a file that was included in the command
+with which you started Vim, but was not edited, will also be an inactive buffer.
+  To find a list of buffers, use the `:buffers` command.
+  
+  The state flags of buffer are as follows:
+  a 	Active buffer
+  -	Inactive buffer
+  h	Buffer is hidden.
+  %     Current buffer.
+  #     Alternate buffer.
+  +     File has been modified.
+
+*Bookmark Page 51 of 572  Chapter 5 Windows  Selecting a Buffer*
