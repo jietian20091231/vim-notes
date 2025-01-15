@@ -47,7 +47,7 @@ To err is human, To really foul up you need a computer.
 
 int main()
 {
-  print("dfhdjfdjfh");
+  printf("dfhdjfdjfh");
 }
 
 The  end of the insert
@@ -87,3 +87,5 @@ drwxr-xr-x   5 Jie  staff    160 Dec 28 10:41 vim-docs
 -rw-r--r--   1 Jie  staff   3539 Dec 23 22:15 vim_tutorial_2.txt
 -rw-r--r--   1 Jie  staff   2678 Dec 28 21:41 vim_tutorial_3.txt
 -rw-r--r--   1 Jie  staff   3618 Dec 23 20:59 vim_tutorial_4.txt
+
+abc
