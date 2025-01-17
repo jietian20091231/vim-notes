@@ -108,3 +108,58 @@ with which you started Vim, but was not edited, will also be an inactive buffer.
   +     File has been modified.
 
 *Bookmark Page 51 of 572  Chapter 5 Windows  Selecting a Buffer*
+
+Selecting a Buffer
+-----------------
+:buffer number
+You can select which buffer to use by executing this command `:buffer number`
+number is the buffer number. If you do not know the number of the buffer, but
+you know the filename, you can use this command `:buffer filename`
+
+:sbuffer number:
+this command splits the window and starts editing the buffer. 
+If a number is specified, the new window will contain that buffer
+number. If no number is present, the current buffer is used. This 
+also takes a filename as an argument. If you are editing the file,
+and execute the command `:sbuffer filename`
+
+Other buffer-related commands include the following:
+
+:bnext				Go to the next buffer
+:count bnext			Go to the next buffer count times.
+:count sbnext 			Shorthand for `:split` followed by `:count bnext`
+:count bprevious		Go to previous buffer. If a count is specified, go
+				to the `count` previous buffer.
+:count sbprevious		Shorthand for `:split` and `:count bprevious`.
+:count bNext			Alias for `:bprevious`.
+:count sbNext			Alias for `:sbprevious`.
+:blast				Go to the last buffer in the list.
+:sblast				Shorthand for `:split` and `:rewind`.
+:brewind			Go the first buffer in the list.
+:sbrewind			Shorthand for `:split` and `:rewind`.
+:bmodified count		Go to count modified buffer on the list.
+:sbmodified count 		Shorthand for `:split`and `:bmodified`. 
+
+
+Buffer Options
+--------------
+:set hidden
+Usually when the last window of a file is closed, the buffer associated with the file
+becomes inactive. If the opetion `hidden` is set, files that leave the screen do not 
+become inactive; instead they automatically become hidden.Therefore if you want to keep
+the contents of all your old buffer around while editing, use the command `:set hidden`
+
+Note
+The `:hide` command always hides the current file no matter what the "hidden" option is 
+set to.
+
+Normally, the split/buffer related commands split the current window. If the "switchbuf`
+is set to "useopne" and there is a window displaying the buffer you want to display 
+already on the screen, the Vim will just make that window the current one instead of 
+performing the split.
+
+Note the "switchbuf" option can have the values "(nothing),'split', 'useopen' and 
+'split,useopen'"
+
+
+
