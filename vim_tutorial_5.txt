@@ -1,0 +1,137 @@
+Chapter 6 Basic Visual Mode
+===========================
+
+In this chapter, you learn about the following
+	* How to start visual mode
+	* Visual yanking
+	* Using visual mode to change text
+	* Visual commands for programmers
+	* Visual block mode
+
+Entering Visual Modes
+--------------------
+v
+To enter visual mode, type the v command. Now when you move the cursor, the text
+from the start position to the current cursor location is highlighted. After the 
+text has been highlighted, you can do something with it.
+
+V
+The `V` command starts linewise visual mode. You can highlight only full lines in
+this mode.
+
+CTRL-v
+To highlight a rectangle on the screen, use `CTRL-V`. 
+
+Leaving Visual Mode
+-------------------
+Normally, you leave visual mode by typing a visual-mode command, such as `d` to delete
+the highlighted text. But you can also cancel visual mode by pressing the `<Esc>` key.
+  Remember, you can always type `<Esc>` to get back to normal mode so you know where you
+are.
+
+
+Editing with Visual Mode
+------------------------
+Editing with visual mode is sample. Select the text using the visual commands just discussed,
+and then type an editing command. 
+
+Deleting Text in Visual Mode
+The `d` command deletes the highlighted text. 
+The `D` command deletes the highlighted lines, even if only part of a line is highlighted.
+
+Yanking Text
+------------
+The `y` command places the highlighted text into a register.
+The linewise version of this commnd, `Y`, places each of the highlighted text into a register.
+
+Switching Modes
+---------------
+Suppose you are in character mode (started by `v`) and you realize you want to be in block mode.
+You can switch  to block mode by just pressing `CTRL-V`.
+  In fact, you can switch visual modes at any time by just selecting the new mode. To cancel
+visual mode, press the `<Esc>` key; or you can switch to mode you are already in. 
+(In other words, if you use `v`start visual mode, you can use another `v` to exit it.)
+
+Changeing Text
+--------------
+The `c` command deletes the highlighted text and starts insert mode. The `C` command does the same
+things, but it works only on whole lines.
+
+Joining Lines
+-------------
+The `J` command joins all the highlighted lines into one long line. Spaces are used to separate the lines.
+If you want to join the lines without adding spaces, use the `gJ` command.
+
+Note
+`r` and `s` do the same thing as `C` in visual mode. The same thing goes for `R` and `S`
+
+
+Commands for Programmers
+------------------------
+The `>` command indents the selected lines by one "shift width" (The command of white space can be set whit
+the 'shiftwdith' option.) The `<` does the process in reverse.
+(Note that these commands have a differents meaning when using visual block mode.)
+
+The `=` command indents the text. The `CTRL-]` commnad will jump to definition of the function highlighted.
+
+Keyword Lookup
+--------------
+The `K` command is designed to look up the selected text using the "man" command. It works jusk like the 
+normal-mode `K` command except that it use the highlighted text as the keyword.
+
+
+Visual Block Mode
+-----------------
+Some commands work a little differnently in visual block mode. Visual block mode is started by pressing
+`CTRL-v` and is used to define a rectangle on the screen.
+
+Interting Text
+--------------
+The command `Istring<Esc>` inserts the text on each line starting at the left side of the visual block.
+You start by pressing `CTRL-v` to enter visual block mode. Now you define your block. Next you type `I`
+to enter insert mode followed by the text to insert. As you type, the text appears on the first line.
+After you press `<Esc>` to end the insert, the text will magically be inserted in the rest of the lines
+contained in the visual selection.
+
+If the block spans short lines that do not extend into the block, the text is not inserted in that line.
+If the string contains a newline, the `I` acts just like a normal-mode insert (`i`) command and affects only
+the first line of the block.
+
+Changing Text
+-------------
+The visual block `c` command deletes the block and the throws you into insert mode to enable you to type in
+a string. The string will be inserted on each line in the block.
+The `c` command works only if you enter less than one line  of new text. If you enter something that contains
+a newline, only the first line is changed.(In other words, visual block `c` acts just normal-mode `c` if the 
+text contains more than one line.)
+
+Note
+The string will not be inserted on lines that do not extend into the block. Therefore if the block includes some
+short lines, the string will not be inserted in the short line.
+
+The `C` command deletes text from the left edge of the block to the end of line. It then puts you insert mode so
+that you can type in a string, which is added to the end of earch line. Again, short lines that do not reach into
+the block are excluded.
+
+The visual block `A` throws Vim into insert mode to enable you to input a string. The string is appended to the block.
+If there are short lines in the block, spaces are added to pad the line and then string is appended.
+  You may notice that the `A` command affects short lines, whereas the other editing commands do not. The developers of 
+Vim have noticed this and will fix this bug in a furture version of the editor.
+  You can define a right edge of a visual mode block in two ways. If you are use just motion keys. the right edage is the
+edge of the highlighted area. If you use the `$` key to extend the visual block to the end of line,( recommend use `$` key.)
+the `A` key will add the text of the end of earch line.
+
+Replacing
+---------
+The `r` command applies all the selected characters with a single character.Short lines do not extend into the block are
+not effectd.
+
+
+Shifting
+--------
+The command `>` shifts the text to the right one shift width, opening whitespace. The starting point for this shift is the 
+left side of the visual block.
+The command `<` removes one shift width of whitespace at the left side of the block.This command is limited by the amount
+of text that is where; so if there is less than a shift width of whitespace available, it removes what it can.
+
+
