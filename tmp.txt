@@ -13,11 +13,16 @@ type `:4,13sort`
 3
 
 https://yyq123.github.io/learn-vim/learn-vim-sort.html
+step 1, put the cursor under the character f, pressing `CTRL-v4j` 
+step 2, pressing `I#include<<Esc>` added string "#include<" earch lines.
+step 3, choice the longest line. type `$CTRL-v4k`.
+step 4, pressing `A><Esc>` append the character `>` earch lines.
 
-fcntl.h
-stdio.h
-unistd.h
-stdlib.h
+#include<fcntl.h>
+#include<stdio.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<a/b/c/sample.h>
 
 
 teh
@@ -42,7 +47,6 @@ quote character).
 The start of the last insert
 
 To err is human, To really foul up you need a computer.
-
 
 
 int main()
