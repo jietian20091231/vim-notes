@@ -1,0 +1,70 @@
+Chapter 7 
+Commands for Programmers
+========================
+In this chapter, you learn about the following:
+	* Syntax coloring
+	* Automatic indentation
+	* Indentation commands
+	* Commands to navigate through the source code  (use `coc` plugin)
+	* Getting information through the `man` command (use `coc` plugin)
+	* The use of tags to go up and down a call stack (use `coc` plugin)
+	* Making programs with the `:make` command (use `coc` plugin)
+	* File searching with `:grep` (use `coc` plugin)
+
+Syntax Coloring
+---------------
+The command `:syntax on` turns on syntax coloring.
+That means that thhings such as keywords, strings, comments, and other syntax elements will
+have differents colors. (If you have a black-and-white terminal, they will have different 
+attributes such as bold, underline, blink, and so on)
+  You can customize the colors used for syntax highlighting as well as the highlighting method
+itself.
+
+I'm Editing a C File with a Non-Standard Extension. How Do I Tell Vim About It?
+-------------------------------------------------------------------------------
+The Vim editor uses a file's extension to determine the file type. For example, files that end in
+`.c` or `.h` are considered C files. But what if you are editing a C header file named `settings.inc`?
+Because this is a non-standard extension, Vim will not know what to do with it. So how do you tell Vim
+that this is a C file?
+  The answer is to use the option `filetype`. This tells Vim which type of syntax highlighting to use.
+With a C file, you use the following command: `:set filetype=c`
+
+Shift Commands
+--------------
+>> or <<
+The left shift command (`<<`) shifs the current line one shift width to the left. 
+The right shfit command (`>>`) does the same in the other direction.But what is a shift width? By default
+It is 8. However, studies have shown that an indentation of 4 spaces for each level of logic is that most
+readable.So shift width of 4 would be much nicer.To change the size of the shift width, use the following
+command: `set shiftwidth=4`
+  The `<<` command shifts a single line. As usual you can prefix this command with a count; for example, 
+`5<<` shifts 5 lines. The command `<motion` shifts each line from the current cursor location to where
+motion carries you.
+
+Automatic Indentation
+---------------------
+The Vim editor has variety of automatic indentation options. The major indentation modes are the following:
+
+cindent:
+This works for C-style programs (C, C++, Java, and so on). When this style of indentation is enabled, the Vim
+editor automatically indents your program according to a "standard" C style.
+
+smartindent
+In this mode, Vim indents each line the same amount as the preceding one, adding an extra level of indentation
+if the line contains a left curly brace ({) and removing a indentaion level if the line contains a right curly
+brace (}).An extra indent is also added for any of the keywords specified by the `cinwords` option.
+
+autoindent
+New lines are indented the same as the previous line.
+
+In insert mode, `CTRL-D` command removes one shift width. `CTRL-T` command adds one shift width
+
+The `=motion` command indents the selected text using Vim's inernal formatting program. If you
+want to indent a block of text. 
+
+The `=motion` command the selected text using Vim's internal formatting program. If you want to indent a block
+of text, you can use the `=` command to do it. The motion in this case is the `%`(go to matching{}) command.
+
+how to do formatting selected text using Vim'internal identation? In C-style language.
+Step 1, Position cursor on the first "{"
+Step 2, Execute the command "=%"
